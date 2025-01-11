@@ -44,6 +44,11 @@
 #include REACT_NATIVE_APP_COMPONENT_DESCRIPTORS_HEADER
 #endif
 
+#include <jsi/jsi.h>
+#include "NostrClient.h"
+
+using namespace facebook;
+
 namespace facebook::react {
 
 void registerComponents(
@@ -77,6 +82,11 @@ std::shared_ptr<TurboModule> cxxModuleProvider(
   // This code register the module so that when the JS side asks for it, the app can return it
   if (name == NativeSampleModule::kModuleName) {
     return std::make_shared<NativeSampleModule>(jsInvoker);
+  }
+
+  // Add our NostrClient
+  if (name == NostrClient::kModuleName) {
+    return std::make_shared<NostrClient>(jsInvoker);
   }
 
   // And we fallback to the CXX module providers autolinked
