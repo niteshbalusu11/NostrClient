@@ -45,7 +45,6 @@ include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
 target_sources(${CMAKE_PROJECT_NAME} 
     PRIVATE 
     ${SHARED_DIR}/NostrClient.cpp
-    ${SHARED_DIR}/NativeSampleModule.cpp
 )
 
 # Include directories for header files
